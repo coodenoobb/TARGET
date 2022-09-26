@@ -9,7 +9,8 @@ int main(){
        ans = ans ^ arr[i];
     }
 
-    cout<<"Answer is"<<ans;
+    cout<<"Answer is "<<ans;
+    cout<<"Good JOb";
 
 return 0;
 }
