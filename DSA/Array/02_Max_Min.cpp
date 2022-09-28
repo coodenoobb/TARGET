@@ -2,26 +2,30 @@
 using namespace std;
 int getMax(int arr[], int size){
 
-    int max = INT_MIN;
+    int maxi = INT_MIN;
 
     for(int i=0;i<size;i++){
-        if(arr[i]>max){
-            max = arr[i];
+
+        //maxi = max(maxi,arr[i]);   -----> Short trick to find max
+        if(arr[i]>maxi){
+            maxi = arr[i];
         }
     }
-    return max;
+    return maxi;
 }
 
 int getMin(int arr[], int size){
 
-    int min = INT_MAX;
+    int mini = INT_MAX;
 
     for(int i=0;i<size;i++){
-        if(arr[i]<min){
-            min = arr[i];
+
+        //mini = min(mini,arr[i]);   --------->Short Trick to find min
+        if(arr[i]<mini){
+            mini = arr[i];
         }
     }
-    return min;
+    return mini;
 }
 int main(){
     int size;
