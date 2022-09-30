@@ -13,7 +13,7 @@ void printArray(int arr[], int size)
 int binarySearch(int arr[],int size, int key){
     int l=0;
     int h=size-1;
-    int mid = (l+h)/2;
+    int mid = (l+h)/2;      // (l+(h-l)/2)
 
     while(l<=h){
         if(arr[mid]==key){
