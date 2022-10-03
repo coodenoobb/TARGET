@@ -25,7 +25,7 @@ bool isPossible(int arr[],int size,int stud,int mid){     // To check which side
     return st<=stud;
 }
 
-int allocateBooks(int arr[],int size, int stud){
+int allocateBooks(int arr[],int size, int stud){            //For allocating the no of pages 
 
     int maxi = INT_MIN;                                                         
     int sum = 0;
