@@ -10,7 +10,7 @@ void printArray(int arr[], int size)
     }
 }
 
-bool isPossible(int arr[],int size,int stud,int mid){
+bool isPossible(int arr[],int size,int stud,int mid){     // To check which side to go for mid value
     int st = 1;
     int pageSum = 0;
 
