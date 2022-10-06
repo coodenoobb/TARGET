@@ -10,19 +10,18 @@ void printArray(int arr[], int size)
     }
 }
 
-void selectionSort(int arr[], int size){
+void insertionSort(int arr[], int n){
     
-    for(int i=0;i<size-1;i++){
-        int minIndex = i;
-
-        for(int j=i+1;j<size;j++){
-
-            if(arr[minIndex]>arr[j]){
-                minIndex = j;
-            }
-        }
-        swap(arr[i],arr[minIndex]);
-    }
+    for(int i=1;i<n;i++){
+		int temp = arr[i];
+		int j = i-1;
+		
+		while(j>=0 && arr[j]>temp){
+			arr[j+1]=arr[j];
+			j--;
+		}
+		arr[j+1]=temp;
+	}
 }
 int main(){
 
@@ -40,7 +39,7 @@ int main(){
     cout << endl;
 
     
-    selectionSort(arr,size);
+    insertionSort(arr,size);
 
     printArray(arr,size);
 
