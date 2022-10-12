@@ -1,36 +1,38 @@
 #include<bits/stdc++.h>
 using namespace std;
+// Creation of class
 class Hero{
-
+    private:
+        int health;
+    
     public:
+        int power;
 
-    int health;
-    int level;
+        int getHealth(){
+            return health;
+        }
+        void setHealth(int h){
+            health = h;
+        }
 
-    Hero(){
-        cout<<"Object created"<<endl;
-    }
 
-    Hero( int health){
-        this->health = health;
-        cout<<"Health is "<<health<<endl;
-    }
 
 };
-int main(){
 
+int main(){
+    
+    // creation of Object
     Hero h1;
 
-    Hero *h2 = new Hero;
-
-    Hero h3(500);
-
-    Hero h4(h3);
     
+    h1.power = 7;
 
-    // h1.health = 80;
-    // h1.level = 5;
+    // Accessing Private members
+    h1.setHealth(20);
+    cout<<"Health "<<h1.getHealth();
 
-    // cout<<"Health is "<<h1.health<<" and level is "<<h1.level;
+ 
+
+
 return 0;
 }
