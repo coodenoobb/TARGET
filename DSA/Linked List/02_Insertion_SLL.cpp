@@ -42,26 +42,26 @@ void insertAtPosition(Node * &head, int pos, int val){
 
     Node* newNode = new Node(val);
 
-    if(pos==1){
+    if(pos==1){                         // Insertion at Position 1
         newNode ->next = head;
         head = newNode;
     }
     else{
 
-        Node *temp = head;
+        Node *temp = head;          
 
-        for(int i=1;i<pos-1;i++){
+        for(int i=1;i<pos-1;i++){       // Iterating to find the position
             if(temp!=NULL){
                 temp = temp->next;
             }
         }
 
-        if(temp!=NULL){
-            newNode ->next = temp->next;
+        if(temp!=NULL){             
+            newNode ->next = temp->next;    // Assigning the node
             temp->next = newNode;
         }
         else{
-            temp->next  = newNode;
+            temp->next  = newNode;          // Inserrting at last posotion
         }
     }
     
