@@ -74,6 +74,11 @@ int main(){
     insertAtTail(node1,99);
     print(node1);
 
+    insertAtTail(node1,129);
+    print(node1);
+
+    insertAtHead(node1,362);
+    print(node1);
 
 
     // cout<<node1->data<<endl;
