@@ -82,8 +82,7 @@ void insertAtPosition(Node* &head, int pos, int val){
         }
 
         newNode->next = temp->next;
-        temp->next= newNode;
-        temp->next = newNode;
+        temp->next= newNode;       
         newNode ->prev = temp;
 
     }
@@ -120,7 +119,7 @@ int main(){
     insertAtTail(node1, 93);
     print(node1);
 
-    insertAtPosition(node1, 8, 52);
+    insertAtPosition(node1, 1, 52);
     print(node1);
 
  
