@@ -26,14 +26,20 @@ void print(Node * &head){
 }
 
 // Inserting at head
-void insertAtHead(Node* &head, int val){
+void insertAtHead(Node* &head, int val){  
 
-    Node * newNode = new Node(val);         
+    Node * newNode = new Node(val); 
 
+    if(head==NULL){
+        head = newNode;
+    }       
+
+    else{
     newNode->next = head;
-    newNode->prev = NULL;
-    head->prev=newNode->next;
+    // newNode->prev = NULL;
+    // head->prev=newNode->next;
     head = newNode;
+    }
 
 }
 
@@ -53,8 +59,34 @@ void insertAtTail(Node* &head, int val){
     }
 
     temp->next = newNode;
-    newNode ->prev = temp;
+    newNode ->prev = temp->next;
 
+}
+
+//Inseting at a Position
+
+void insertAtPosition(Node* &head, int pos, int val){
+
+    Node* newNode = new Node(val);
+
+    if(pos == 1){
+        newNode->next = head;
+        head = newNode;
+    }
+    else{
+
+        Node* temp = head;
+
+        for(int i = 1; i<pos-1; i++){
+            temp = temp->next;
+        }
+
+        newNode->next = temp->next;
+        temp->next= newNode;
+        temp->next = newNode;
+        newNode ->prev = temp;
+
+    }
 }
 
 
@@ -80,23 +112,17 @@ int main(){
     insertAtHead(node1, 11);
     print(node1);
 
-    insertAtHead(node1, 12);
-    print(node1);
+    
 
-    insertAtHead(node1, 13);
-    print(node1);
-
-    insertAtTail(node1, 92);
+    insertAtPosition(node1, 2, 55);
     print(node1);
 
     insertAtTail(node1, 93);
     print(node1);
 
-    
-    insertAtHead(node1, 19);
+    insertAtPosition(node1, 8, 52);
     print(node1);
 
-    insertAtTail(node1, 94);
-    print(node1);
+ 
 return 0;
 }
