@@ -38,19 +38,19 @@ void insertAtTail(Node * &head, int val){
 
 void deleteNode(Node * &head, int pos){
     
-    if(pos==1){
+    if(pos==1){                 // If postion is at head
         Node * temp = head;
         head = head->next;
 
-        delete temp;
+        delete temp;            // deletin the node is important 
     }
 
     else{
-        Node * curr = head;
-        Node * prev = NULL;
+        Node * curr = head;        // Assign the head to current head aftewards
+        Node * prev = NULL;        // Assign prev to NULL -> will modify afterwards
 
-        for(int i=1;i<pos;i++){
-            prev = curr;
+        for(int i=1;i<pos;i++){     // Iterating to the postion
+            prev = curr;               
             curr = curr->next;
         }
 

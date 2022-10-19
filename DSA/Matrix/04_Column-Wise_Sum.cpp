@@ -9,15 +9,11 @@ void colSum(int arr[][4],int row, int col){
         }
         cout<<"Col wise sum is "<<sum<<endl;
     }
-
 }
-
 
 int main(){
 
     int arr[3][4];
-    
-
     cout<<"Enter values : "<<endl;
     for(int i=0;i<3;i++){
         for(int j=0;j<4;j++){
@@ -31,13 +27,8 @@ int main(){
         }
         cout<<endl;
     }
-    cout<<endl;
-    
+    cout<<endl;   
     colSum(arr,3,4);
-
-    
-
-
 
 return 0;
 }
