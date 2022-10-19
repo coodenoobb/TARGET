@@ -5,9 +5,8 @@ void revStr(string &str, int l, int h){
     if(l>h){
         return ;
     }
-    swap(str[l],str[h]);
-    l++;
-    h--;
+    swap(str[l++],str[h--]);
+    
 
     return revStr(str,l,h);
 
