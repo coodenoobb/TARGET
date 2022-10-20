@@ -1,0 +1,2 @@
+
+    if(curr!=NULL){
