@@ -11,7 +11,7 @@ int powerNum(int num, int p){
 }
 int main(){
 
-    int base = 2, pow = 10;
+    int base = 3, pow = 3;
 
     int ans = powerNum(base,pow);
     cout<<"ans " <<ans;
