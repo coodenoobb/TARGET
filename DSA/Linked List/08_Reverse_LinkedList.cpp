@@ -10,6 +10,8 @@ class Node{
             this->next = NULL;
         }
 };
+
+// Iterative Approach
 void reverseList (Node* &head){
 
     Node *curr = head;
@@ -23,9 +25,33 @@ void reverseList (Node* &head){
         curr = fwd;             // move curr ahead
     }
     head = prev;
-
     
 }
+
+// Recursive Approach
+
+void helper(Node* &head, Node *curr, Node *prev){
+
+    if(curr==NULL){         // base case
+        head = prev;
+        return;
+    }
+
+    Node * fwd = curr->next;
+    helper(head,fwd,curr);
+    curr->next = prev;
+
+}
+
+Node* reverse(Node * head){
+
+    Node * curr = head;
+    Node * prev = NULL;
+
+    helper(head,curr,prev);
+    return head;
+}
+
 void printList(Node* head){
     Node *temp= head;
 
@@ -45,8 +71,8 @@ int main(){
    
     printList(node1);
     cout<<endl;
-    reverseList(node1);
-    printList(node1);
+    Node * ans = reverse(node1);
+    printList(ans);
 
 
 
