@@ -8,6 +8,7 @@ void printNum(int n){
     
     printNum(n-1);
     cout<<n<<" ";
+    cout<<endl;
     
     
 }
