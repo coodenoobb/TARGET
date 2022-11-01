@@ -13,7 +13,7 @@ void printNum(int n){
     
 }
 int main(){
-
+    cout<<"Printing";
     printNum(5);
 
 return 0;
