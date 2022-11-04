@@ -15,6 +15,7 @@ void printNum(int n){
 int main(){
     cout<<"Printing";
     printNum(5);
+    cout<<"   ";
 
 return 0;
 }
