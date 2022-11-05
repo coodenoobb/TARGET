@@ -16,6 +16,7 @@ int main(){
     cout<<"Printing";
     printNum(5);
     cout<<"   ";
+    cout<<"OK";
 
 return 0;
 }
