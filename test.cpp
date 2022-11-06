@@ -8,12 +8,15 @@ void printNum(int n){
     
     printNum(n-1);
     cout<<n<<" ";
+    cout<<endl;
     
     
 }
 int main(){
-
+    cout<<"Printing";
     printNum(5);
+    cout<<"   ";
+    cout<<"OK";
 
 return 0;
 }
