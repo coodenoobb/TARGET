@@ -10,6 +10,23 @@ class Node{
             this->next = NULL;
         }
 };
+// revrse by rec
+Node* reverseByRec(Node* head){
+    //base case;
+    if(head == NULL or head->next == NULL){
+        return head;
+    }
+
+
+    //
+    Node* newhead = reverseByRec(head->next);        // we will pass head ka next
+    head->next->next = head;
+    head->next = NULL;
+
+    return newhead;
+
+}
+
 
 // Iterative Approach
 void reverseList (Node* &head){
@@ -71,7 +88,7 @@ int main(){
    
     printList(node1);
     cout<<endl;
-    Node * ans = reverse(node1);
+    Node * ans = reverseByRec(node1);
     printList(ans);
 
 
