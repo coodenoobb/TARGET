@@ -1,6 +1,7 @@
-class Solution {
-public:
-    void helper(string digits, string output, int index, vector <string> &ans, string keypad[]){
+#include<bits/stdc++.h>
+using namespace std;
+
+void helper(string digits, string output, int index, vector <string> &ans, string keypad[]){
         //base condition
         if(index>=digits.length()){
             ans.push_back(output);
@@ -21,7 +22,7 @@ public:
 
     }
 
-    vector<string> letterCombinations(string digits) {
+vector<string> letterCombinations(string digits) {
         // mapping the alphabets with the digits from 0-9
         string keypad[10] = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
         vector <string> ans;
@@ -38,4 +39,17 @@ public:
 
 
     }
-};
+
+
+int main(){
+
+    string digits = "23";
+    vector <string> stri = letterCombinations(digits);
+    
+    for(auto it : stri){
+        cout<<it<<" ";
+    }
+
+    return 0;
+
+}
