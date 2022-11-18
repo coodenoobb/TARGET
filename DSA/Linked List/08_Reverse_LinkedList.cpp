@@ -17,7 +17,6 @@ Node* reverseByRec(Node* head){
         return head;
     }
 
-
     //
     Node* newhead = reverseByRec(head->next);        // we will pass head ka next
     head->next->next = head;
