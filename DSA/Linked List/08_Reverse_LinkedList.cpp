@@ -25,8 +25,6 @@ Node* reverseByRec(Node* head){
     return newhead;
 
 }
-
-
 // Iterative Approach
 void reverseList (Node* &head){
 
