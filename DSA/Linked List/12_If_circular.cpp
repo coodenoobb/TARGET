@@ -45,7 +45,7 @@ int main(){
     Node* node3 = new Node(30);
     Node* node4 = new Node(40);
     Node* node5 = new Node(50);
-    // Node* node6 = new Node(60);
+    Node* node6 = new Node(60);
 
 
     node1->next = node2;
