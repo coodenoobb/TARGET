@@ -65,6 +65,20 @@ Node* getStartingPoint(Node* head){
 
 }
 
+void removeLoop(Node* head){
+    if(head==NULL)  return;
+
+    Node* start = getStartingPoint(head);
+
+    Node* temp = start;
+
+    while(temp->next!=start){
+        temp = temp->next;
+    }
+
+    temp->next = NULL;
+}
+
 void printList(Node* head){
     Node *temp= head;
 
@@ -91,7 +105,10 @@ int main(){
 
     Node* ans = getStartingPoint(node1);
 
-    cout<<ans->data;
+    cout<<ans->data<<endl;
+
+    removeLoop(node1);
+    printList(node1);
 
     
     
