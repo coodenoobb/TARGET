@@ -12,6 +12,7 @@ class Node{
         }
 
 };
+// if LL is straight Slow will never meet Fast
 bool floydCycle(Node* head){
 
     if(head == NULL) return false;
@@ -31,7 +32,38 @@ bool floydCycle(Node* head){
     return false;
 }
 
+Node* getIntersection(Node* head){
 
+    if(head==NULL)  return NULL;
+
+    Node* slow = head;
+    Node* fast = head;
+
+    while(slow!=NULL && fast!=NULL){
+        fast = fast->next;
+        if(fast!=NULL)  fast=fast->next;
+
+        slow = slow->next;
+        if(slow==fast)  return slow;
+    }
+
+    return NULL;
+}
+
+Node* getStartingPoint(Node* head){
+    if(head==NULL)  return NULL;
+
+    Node* intersection = getIntersection(head);
+
+    Node* slow = head;
+    while(slow!=intersection){
+        slow=slow->next;
+        intersection=intersection->next;
+    }
+
+    return slow;
+
+}
 
 void printList(Node* head){
     Node *temp= head;
@@ -54,17 +86,14 @@ int main(){
     node2->next = node3;
     node3->next = node4;
     node4->next = node5;
-    node5->next = node3;
+    node5->next = node6;
+    node6->next = node4;
 
+    Node* ans = getStartingPoint(node1);
 
-    bool ans = floydCycle(node1);
-    if(ans){
-        cout<<"Looped"<<endl;
-    }
-    else {
-        cout<<"Not Looped"<<endl;
-    }
+    cout<<ans->data;
 
-    // printList(node1);
+    
+    
 return 0;
 }
