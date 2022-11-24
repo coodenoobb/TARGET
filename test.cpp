@@ -24,20 +24,39 @@ void printList(Node *head)
     }
 }
 
-bool ifLooped(Node* head){
-    if(head==NULL)  return false;
+Node* floydCycleDetection(Node* head){
+    if(head==NULL)  return NULL;
 
-    map<Node*, bool> visited;
-    Node* temp = head;
+    Node* slow = head;
+    Node* fast = head;
 
-    while(temp!=NULL){
-        if(visited[temp]==true) return true;
+    while(fast!=NULL and slow!=NULL){
+        fast = fast->next;
+        if(fast!=NULL)  fast=fast->next;
 
-        visited[temp]=true;
-        temp=temp->next;
+        slow=slow->next;
+        if(slow==fast)  return slow;
+        
     }
 
-    return false;
+    return NULL;
+}
+
+Node* getStartingNode(Node* head){
+    if(head==NULL)  return NULL;
+
+    Node* intersection = floydCycleDetection(head);
+
+    Node* slow = head;
+    Node* fast = intersection;
+
+    while(slow!=fast){
+        slow=slow->next;
+        fast=fast->next;
+    }
+
+    return slow;
+
 }
 
 int main()
@@ -50,9 +69,7 @@ int main()
     Node *node5 = new Node(5);
     Node *node6 = new Node(6);
     Node *node7 = new Node(7);
-    Node *node8 = new Node(8);
-    Node *node9 = new Node(9);
-    Node *node10 = new Node(10);
+   
 
     node1->next = node2;
     node2->next = node3;
@@ -60,22 +77,16 @@ int main()
     node4->next = node5;
     node5->next = node6;
     node6->next = node7;
-    node7->next = node8;
-    node8->next = node9;
-    node9->next = node10;
-    node10->next = node5;
+    node7->next = node5;
+    
+    
 
-    // printList(node1);
-    cout<<endl;
+    Node* flyod = floydCycleDetection(node1);
+    cout<<"Intersection of Slow and Fast is at "<<flyod->data<<endl;
 
-    bool isLooped = ifLooped(node1);
+    Node* startOfLoop = getStartingNode(node1);
+    cout<<"Start of Loop is at "<<startOfLoop->data<<endl;
 
-    if(isLooped){
-        cout<<"Looped"<<endl;
-    }
-    else{
-        cout<<"Not Looped"<<endl;
-    }
-
+   
     return 0;
 }
