@@ -59,6 +59,22 @@ Node* getStartingNode(Node* head){
 
 }
 
+Node* removeLoop(Node* head){
+    if(head==NULL)  return NULL;
+
+
+    Node* startNode = getStartingNode(head);
+    Node* temp = startNode;
+
+    while(temp->next!=startNode){
+        temp = temp->next;
+    }
+
+    temp->next = NULL;
+    return head;
+
+}
+
 int main()
 {
 
@@ -86,6 +102,10 @@ int main()
 
     Node* startOfLoop = getStartingNode(node1);
     cout<<"Start of Loop is at "<<startOfLoop->data<<endl;
+
+    Node* withoutLoop = removeLoop(node1);
+    cout<<"List without loop"<<endl;
+    printList(withoutLoop);
 
    
     return 0;
