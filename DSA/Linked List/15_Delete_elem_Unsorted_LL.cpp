@@ -12,7 +12,7 @@ class Node{
         }
 
 };
-void deleteDuplicate(Node* head){
+Node* deleteDuplicate(Node* head){
     Node* curr = head;
 
     while(curr!=NULL and curr->next!=NULL){
@@ -32,6 +32,7 @@ void deleteDuplicate(Node* head){
         }
         curr=curr->next;
     }
+    return head;
 }
 
 
@@ -64,8 +65,8 @@ int main(){
     cout<<endl;
  
 
-    deleteDuplicate(node1);
-    printList(node1);
+    Node* newNode = deleteDuplicate(node1);
+    printList(newNode);
     
 
     
