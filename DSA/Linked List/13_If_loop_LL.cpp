@@ -21,6 +21,7 @@ bool ifLooped(Node* head){
 
     while(temp!=NULL){
         if(visited[temp]==true){
+            cout<<"Loop start at "<<temp->data<<endl;
             return true;
         }
 
