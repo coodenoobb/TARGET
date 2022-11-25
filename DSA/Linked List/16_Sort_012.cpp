@@ -96,13 +96,12 @@ Node* sortList(Node *head)
     
     oneTail->next = twoHead->next;
     twoTail->next = NULL;
-    
+
     head = zeroHead->next;
 
     delete(oneHead);
-    delete(twoHead);    
+    delete(twoHead);
     delete(zeroHead);
-
     return head;
  
 }
@@ -116,12 +115,12 @@ void printList(Node* head){
 }
 int main(){
 
-    Node* node1 = new Node(1);
-    Node* node2 = new Node(1);
-    Node* node3 = new Node(2);
-    Node* node4 = new Node(0);
-    Node* node5 = new Node(1);
-    Node* node6 = new Node(2);
+    Node *node1 = new Node(1);
+    Node *node2 = new Node(1);
+    Node *node3 = new Node(2);
+    Node *node4 = new Node(0);
+    Node *node5 = new Node(1);
+    Node *node6 = new Node(2);
     
 
     node1->next = node2;
@@ -129,6 +128,7 @@ int main(){
     node3->next = node4;
     node4->next = node5;
     node5->next = node6;
+
     
 
     printList(node1);
@@ -136,7 +136,7 @@ int main(){
 
     Node* ans = sortList(node1);
 
-    printList(node1);
+    printList(ans);
 
  
 
