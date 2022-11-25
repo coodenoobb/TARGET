@@ -1,2 +1,1 @@
-
-    if(curr!=NULL){
+>next
