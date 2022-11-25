@@ -12,6 +12,8 @@ class Node{
         }
 
 };
+
+// Using Node->Data
 Node* sort012(Node* head){
 
     int zeroCount = 0;
@@ -50,7 +52,60 @@ Node* sort012(Node* head){
     return head;
 }
 
+// Using Node
+void insertAtTail(Node* &tail, Node* curr){
+    tail->next = curr;
+    tail = curr;
+}
 
+Node* sortList(Node *head)
+{
+    // Write your code here.
+    Node* zeroHead = new Node(-99);
+    Node* zeroTail = zeroHead;
+    Node* oneHead = new Node(-99);
+    Node* oneTail = oneHead;
+    Node* twoHead = new Node(-99);
+    Node* twoTail = twoHead;
+    
+    Node* curr = head;
+    
+    // creating three lists for 0s , 1s and 2s
+    while(curr!=NULL){
+        int val = curr->data;
+        
+        if(val==0){
+            insertAtTail(zeroTail,curr);
+        }
+        else if(val == 1){
+            insertAtTail(oneTail,curr);
+        }    
+        else if(val == 2){
+            insertAtTail(twoTail,curr);
+        }    
+        curr = curr->next;      
+    }
+    
+    // merge all three lists
+    if(oneHead->next!=NULL){
+        zeroTail->next = oneHead->next;
+    }
+    else{
+        zeroTail->next = twoHead->next;
+    }
+    
+    oneTail->next = twoHead->next;
+    twoTail->next = NULL;
+    
+    head = zeroHead->next;
+
+    delete(oneHead);
+    delete(twoHead);    
+    delete(zeroHead);
+
+    return head;
+ 
+}
 void printList(Node* head){
     Node *temp= head;
 
@@ -62,22 +117,24 @@ void printList(Node* head){
 int main(){
 
     Node* node1 = new Node(1);
-    Node* node2 = new Node(0);
+    Node* node2 = new Node(1);
     Node* node3 = new Node(2);
     Node* node4 = new Node(0);
     Node* node5 = new Node(1);
     Node* node6 = new Node(2);
+    
 
     node1->next = node2;
     node2->next = node3;
     node3->next = node4;
     node4->next = node5;
     node5->next = node6;
+    
 
     printList(node1);
     cout<<endl;
 
-    Node* ans = sort012(node1);
+    Node* ans = sortList(node1);
 
     printList(node1);
 
