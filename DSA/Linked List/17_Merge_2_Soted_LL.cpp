@@ -19,58 +19,55 @@ void printList(Node* head){
 }
 
 Node* helper(Node* first, Node* second){
-    //only one elem in list 
+
+    // if list has only one elem
+
     if(first->next==NULL){
         first->next = second;
         return first;
     }
-    
-    
     Node* curr1 = first;
     Node* curr2 = second;
-    
-    Node* fwd1 = first->next;
-    Node* fwd2 = second->next;
-    
+
+    Node* fwd1 = curr1->next;
+    Node* fwd2 = NULL;
+
     while(curr1!=NULL and curr2!=NULL){
-        if((curr1->data <= curr2->data) and (curr2->data < fwd1->data)){
+        if(curr1->data <= curr2->data and curr2->data < fwd1->data){
             curr1->next = curr2;
             fwd2 = curr2->next;
             curr2->next = fwd1;
-            
+
             curr1 = curr2;
             curr2 = fwd2;
         }
         else{
             curr1 = curr1->next;
             fwd1 = fwd1->next;
-            
+
             if(fwd1==NULL){
                 curr1->next = curr2;
                 return first;
             }
         }
     }
-    return first;    
+    return first;
 }
 
-Node* sortTwoLists(Node* first, Node* second)
-{
-    // if first or second list is NULL
-    if(first==NULL)    return second;
-    else if(second==NULL)    return first;
+Node* mergeLists(Node* first, Node* second){
     
+    if(first == NULL)   return second;
+    if(second == NULL)   return first;
+
     if(first->data <= second->data){
         helper(first,second);
     }
-    
     else if(first->data > second->data){
         helper(second,first);
-     }
-    
+    }
+
+
 }
-
-
 
 int main(){
 
@@ -104,7 +101,7 @@ int main(){
     printList(secondNode1);
     cout<<endl;
 
-    Node* soln = sortTwoLists(firstNode1,secondNode1);
+    Node* soln = mergeLists(firstNode1,secondNode1);
     printList(soln);
 
 return 0;
