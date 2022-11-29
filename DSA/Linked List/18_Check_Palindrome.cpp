@@ -93,9 +93,6 @@ int main(){
     cout<<endl;
     bool ans = checkPalindrome(node1);
     cout<<ans;
-    
-
-
 
 return 0;
 }
