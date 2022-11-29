@@ -41,7 +41,6 @@ void insertAtTail(Node* &head, Node* &tail, int val){
 }
 Node* add(Node* first, Node* second){
     int carry = 0;
-
     Node* ansHead = NULL;
     Node* ansTail = NULL;
 
@@ -51,11 +50,9 @@ Node* add(Node* first, Node* second){
         if(first!=NULL){
             val1 = first->data;
         }
-
         if(second!=NULL){
             val2 = second->data;
         }
-
         int sum = carry + val1 + val2;
         int digit = sum%10;
 
@@ -63,9 +60,7 @@ Node* add(Node* first, Node* second){
         carry = sum/10;
         if(first!=NULL) first = first->next;
         if(second!=NULL) second = second->next;
-    }
-
-    
+    }  
     return ansHead;
 }
 
@@ -85,18 +80,18 @@ Node* addList(Node* first, Node* second){
 
 }
 int main(){
-    Node* firstnode1 = new Node(1);
-    Node* firstnode2 = new Node(1);
-    Node* firstnode3 = new Node(3);
-    Node* firstnode4 = new Node(0);
+    Node* firstnode1 = new Node(2);
+    Node* firstnode2 = new Node(3);
+    Node* firstnode3 = new Node(6);
+    Node* firstnode4 = new Node(4);
 
     firstnode1->next = firstnode2;
     firstnode2->next = firstnode3;
     firstnode3->next = firstnode4;
 
     Node* secondnode1 = new Node(3);
-    Node* secondnode2 = new Node(4);
-    Node* secondnode3 = new Node(2);
+    Node* secondnode2 = new Node(9);
+    Node* secondnode3 = new Node(8);
     
 
     secondnode1->next = secondnode2;
