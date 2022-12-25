@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<int> nextSmallerElement(vector<int> &arr, int n)
+vector<int> nextSmallerIndex(vector<int> &arr, int n)
 {
     stack<int> st;
     st.push(-1);
@@ -18,7 +18,7 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
     }
     return ans;
 }
-vector<int> prevSmallerElement(vector<int> &arr, int n)
+vector<int> prevSmallerIndex(vector<int> &arr, int n)
 {
     stack<int> st;
     st.push(-1);
@@ -43,10 +43,10 @@ int largestRectangleArea(vector<int> &heights)
 {
     int n = heights.size();
     vector<int> next(n);
-    next = nextSmallerElement(heights, n);
+    next = nextSmallerIndex(heights, n);
 
     vector<int> prev(n);
-    prev = prevSmallerElement(heights, n);
+    prev = prevSmallerIndex(heights, n);
 
     int area = INT_MIN;
 
@@ -67,12 +67,12 @@ int largestRectangleArea(vector<int> &heights)
 int main()
 {
 
-    vector<int> arr = {2, 1, 5, 6, 2, 3};
+    vector<int> arr = {5,3,6,8,4};
 
     vector<int> nextAns;
     vector<int> prevAns;
-    nextAns = nextSmallerElement(arr, 6);
-    prevAns = prevSmallerElement(arr, 6);
+    nextAns = nextSmallerIndex(arr, 5);
+    prevAns = prevSmallerIndex(arr, 5);
     for (int i = 0; i < nextAns.size(); i++)
     {
         cout << nextAns[i] << " ";
