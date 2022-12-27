@@ -13,6 +13,9 @@ int main(){
     qu.pop();
     cout<<qu.size()<<endl;
 
-    
+    cout<<qu.front()<<endl;
+    cout<<qu.back();
+
+
 return 0;
 }
