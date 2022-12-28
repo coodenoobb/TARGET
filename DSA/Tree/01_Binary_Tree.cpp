@@ -37,7 +37,7 @@ Node* buildTree(Node* root){
     return root;
 }
 
-void leverOrderTraversal(Node* root){
+void levelOrderTraversal(Node* root){
     queue <Node*> q;
     q.push(root);
     q.push(NULL);
@@ -67,6 +67,6 @@ int main(){
 
     root = buildTree(root);
     cout<<"Tree"<<endl;
-    leverOrderTraversal(root);
+    levelOrderTraversal(root);
 return 0;
 }
