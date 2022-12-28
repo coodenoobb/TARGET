@@ -35,8 +35,30 @@ Node* buildTree(Node* root){
 
 
     return root;
+}
 
+void leverOrderTraversal(Node* root){
+    queue <Node*> q;
+    q.push(root);
+    q.push(NULL);
 
+    while(!q.empty()){
+        Node* temp = q.front();
+        q.pop();
+
+        if(temp==NULL){
+            cout<<endl;
+            if(!q.empty()){
+                q.push(NULL);
+            }
+        }
+        else{
+            cout<<temp->data<<" ";
+            if(temp->left)  q.push(temp->left);
+
+            if(temp->right) q.push(temp->right);   
+        }  
+    } 
 }
 
 int main(){
@@ -44,5 +66,7 @@ int main(){
     Node* root = NULL;
 
     root = buildTree(root);
+    cout<<"Tree"<<endl;
+    leverOrderTraversal(root);
 return 0;
 }
