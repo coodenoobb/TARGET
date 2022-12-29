@@ -60,6 +60,8 @@ void levelOrderTraversal(Node* root){
     }
 }
 
+
+
 int main(){
 
     Node* root = NULL;
@@ -67,5 +69,10 @@ int main(){
     root = buildTree(root);
     cout<<"Tree"<<endl;
     levelOrderTraversal(root);
+
+    
+
+    
+
 return 0;
 }
