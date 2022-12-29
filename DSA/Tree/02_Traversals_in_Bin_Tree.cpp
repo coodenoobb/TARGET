@@ -55,7 +55,7 @@ void levelOrderTraversal(Node* root){
         }
     }
 }
-
+// L N R
 void inOrderTraversal(Node* root){
     if(root==NULL)  return;
 
@@ -64,6 +64,7 @@ void inOrderTraversal(Node* root){
     inOrderTraversal(root->right);
 }
 
+// N L R
 void preOrderTraversal(Node* root){
     if(root==NULL)  return;
 
@@ -73,6 +74,7 @@ void preOrderTraversal(Node* root){
     preOrderTraversal(root->right);
 }
 
+// L R N
 void postOrderTraversal(Node* root){
     if(root==NULL)  return;
 
