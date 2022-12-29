@@ -55,10 +55,9 @@ void levelOrderTraversal(Node* root){
         else{
             cout<<temp->data<<" ";
             if(temp->left)  q.push(temp->left);
-
-            if(temp->right) q.push(temp->right);   
-        }  
-    } 
+            if(temp->right)  q.push(temp->right);
+        }
+    }
 }
 
 int main(){
