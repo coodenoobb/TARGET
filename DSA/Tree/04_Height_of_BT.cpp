@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 class Node{
-
     public:
         int data;
         Node* left;
@@ -16,23 +15,22 @@ class Node{
 
 Node* buildTree(Node* root){
 
-    cout<<"Enter data for Node : ";
+    cout<<"Enter data for node ";
     int data;
     cin>>data;
 
     root = new Node(data);
 
-    if(data==-1)   return NULL;
+    if(data==-1)    return NULL;
 
-    cout<<"Enter data to be inserted in the left side of "<<data<<endl;
+    cout<<"Enter data on the left side of node "<<data<<endl;
     root->left = buildTree(root->left);
 
-    cout<<"Enter data to be inserted in the right side of "<<data<<endl;
+    cout<<"Enter data on the right side of node "<<data<<endl;
     root->right = buildTree(root->right);
 
     return root;
 }
-
 void levelOrderTraversal(Node* root){
     queue <Node*> q;
     q.push(root);
@@ -55,51 +53,28 @@ void levelOrderTraversal(Node* root){
         }
     }
 }
-// L N R
-void inOrderTraversal(Node* root){
-    if(root==NULL)  return;
 
-    inOrderTraversal(root->left);
-    cout<<root->data<<" ";
-    inOrderTraversal(root->right);
-}
+int height(Node* &node){
+    // base case
+    if(node==NULL)  return 0;
 
-// N L R
-void preOrderTraversal(Node* root){
-    if(root==NULL)  return;
+    // we will calculate the height for left side of the node then we will go for the right side of the node 
+    // after that we will get the max of both
 
-    cout<<root->data<<" ";
-    preOrderTraversal(root->left);
-    
-    preOrderTraversal(root->right);
-}
+    int lh = height(node->left);
+    int rh = height(node->right);
 
-// L R N
-void postOrderTraversal(Node* root){
-    if(root==NULL)  return;
-
-    postOrderTraversal(root->left);
-    postOrderTraversal(root->right);    
-    cout<<root->data<<" ";
+    int h = max(lh,rh) + 1;
+    return h;
 }
 
 int main(){
-
     Node* root = NULL;
     root = buildTree(root);
     levelOrderTraversal(root);
-
     cout<<endl;
-    cout<<"InOrder Traversal : ";
-    inOrderTraversal(root);
 
-    cout<<endl;
-    cout<<"PreOrder Traversal : ";
-    preOrderTraversal(root);
-
-    cout<<endl;
-    cout<<"PostOrder Traversal : ";
-    postOrderTraversal(root);
-
+    int ans = height(root);
+    cout<<"Height of the Tree is "<<ans;
 return 0;
 }
