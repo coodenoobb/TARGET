@@ -1,19 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 class Node{
+
     public:
         int data;
         Node* left;
         Node* right;
-    
-    Node(int d){
-        this->data = d;
-        this->left = NULL;
-        this->right = NULL;
-    }
-};
 
-// Function to create TREE
+        Node(int d){
+            this->data = d;
+            this->left = NULL;
+            this->right = NULL;
+        }
+};
 
 Node* buildTree(Node* root){
 
@@ -23,16 +22,13 @@ Node* buildTree(Node* root){
 
     root = new Node(data);
 
-    // -1 to terminate
+    if(data==-1)   return NULL;
 
-    if(data==-1)    return NULL;
-
-    cout<<"Enter Data to be inserted in left side of : "<<data<<endl;
+    cout<<"Enter data to be inserted in the left side of "<<data<<endl;
     root->left = buildTree(root->left);
 
-    cout<<"Enter Data to be inserted in right side : "<<data<<endl;
+    cout<<"Enter data to be inserted in the right side of "<<data<<endl;
     root->right = buildTree(root->right);
-
 
     return root;
 }
@@ -59,23 +55,39 @@ void levelOrderTraversal(Node* root){
         }
     }
 }
+void trav(Node* root,map<int,vector<pair<int,int>>> &mp,int line,int level){
+    if(root==NULL)  return;
 
+    mp[line].push_back({level,root->data});
+    trav(root->left,mp,line-1,level+1);
+    trav(root->right,mp,line+1,level+1);
 
+}
+void vertical(Node* root,vector<int> &arr){
+    map<int,vector<pair<int,int>>> mp;
+    trav(root,mp,0,0);
+    for(auto m : mp){
+        sort(m.second.begin(),m.second.end());
+        for(auto it : m.second){
+            arr.push_back(it.second);
+        }
+    }
 
+}
 int main(){
 
     Node* root = NULL;
-
     root = buildTree(root);
-    cout<<"Tree"<<endl;
     levelOrderTraversal(root);
-    
-    cout<<"Check"<<endl;
-    cout<<root->left->left;
 
-    
+    vector<int>arr;
+    vertical(root,arr);
 
-    
+    for(auto it:arr){
+        cout<<it<<" ";
+    }
+
+
 
 return 0;
 }
